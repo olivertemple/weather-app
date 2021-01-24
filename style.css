@@ -21,8 +21,9 @@ body{
 .summary{
     background-color: rgb(32,32,32);
     border-radius: 30px;
-    height:15vh;
+    height:16vh;
     margin-left: 3vw;
+    padding-bottom: 1vh;
 }
 .summary img{
     height: 10%;
@@ -38,9 +39,16 @@ body{
     margin-top: 1vh;
 }
 
+.summary h3{
+    margin-top:8vh;
+    position: absolute;
+    font-size: 2vh;
+    margin-left: 3vw;
+}
+
 .summary #feelsLike{
     text-align: center;
-    margin-top:9vh;
+    margin-top:11vh;
     position: absolute;
     width: 100%;
 }
@@ -89,8 +97,43 @@ body{
     width: auto;
     float:left;
     width: 10%;
+    margin-left: 1.5vw;
 }
 
 .wind span{
     font-size: 50%;
+}
+
+.hourly #hourly{
+    overflow-x: scroll;
+    white-space: nowrap;
+
+}
+
+.hourly div{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top:2vh;
+}
+
+.hourly div1{
+    background-color: rgb(32, 32, 32);
+    display:inline-block;
+    border-radius: 30px;
+    margin-right: 1vw;
+    padding-bottom: 1vh;
+}
+
+.hourly img{
+    height:7vh;
+}
+.hourly h1{
+    text-align: center;
+    font-size: 1.75vh;
+}
+
+.hourly h2{
+    text-align: center;
+    font-size: 1.75vh;
+    margin-top: -1vh;
 }
