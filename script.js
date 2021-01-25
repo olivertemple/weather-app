@@ -6,8 +6,9 @@ function getData(){
             data = JSON.parse(req.response);
             currentData = data.current;
             hourlyData = data.hourly;
-            showCurrentData(currentData);
+            showCurrentData(data);
             showHourlyData(hourlyData);
+            sortMin(data.minutely)
         }else{
             console.log("error");
         }
@@ -15,7 +16,8 @@ function getData(){
     req.send();
 }
 
-function showCurrentData(currentData){
+function showCurrentData(data){
+    var currentData = data.current
     var url = "http://openweathermap.org/img/wn/"+currentData.weather[0].icon+"@2x.png"
     var temp = document.createElement("h1");
     temp.appendChild(document.createTextNode((Math.round(currentData.temp))+"\u02DA"));
@@ -32,9 +34,21 @@ function showCurrentData(currentData){
     span.appendChild(document.createTextNode(currentData.feels_like+"\u02DA"));
     feelsLike.appendChild(span);
 
+    var maxTemp = data.daily[0].temp.max;
+    var minTemp = data.daily[0].temp.min;
+
+    var maxMin = document.createElement("div1")
+    var max = document.createElement("h4");
+    max.appendChild(document.createTextNode(maxTemp+"\u02DA"));
+    var min = document.createElement("h4");
+    min.appendChild(document.createTextNode(minTemp+"\u02DA"));
+    maxMin.appendChild(max)
+    maxMin.appendChild(min)
+
 
     document.getElementById("topSummary").appendChild(img);
     document.getElementById("topSummary").appendChild(temp);
+    document.getElementById("topSummary").appendChild(maxMin)
     document.getElementById("description").appendChild(description);
     document.getElementById("feelsLike").appendChild(feelsLike);
 
@@ -99,4 +113,42 @@ function showHourlyData(hourlyData){
     })
 }
 
+function graphPrecipitation(min){
+    var chart = new CanvasJS.Chart("hour",{
+        backgroundColor: "rgb(0,0,0,0)",
+        zoomEnabled: false,
+        animationEnabled: true,
+        animationDuration: 1000,
+        title:{
+            text: "Precipitation over the next hour"},
+            fontColor:"#FFFFFF",
+        axisY:{
+            title: "Precipitation (mm)",
+            gridThickness: 0.2,
+            titleFontColor:"white",
+            labelFontColor:"white",
+        },
+        axisX:{
+            title: "Time",
+            titleFontColor:"white",
+            labelFontColor:"white",
+        },
+        data: [
+        {        
+        type: "area",
+        xValueType: "dateTime",
+        dataPoints: min
+        }]
+        });
+        chart.render();
+}
+
+
+function sortMin(data){
+    var xyData = []
+    data.forEach(function(item){
+        xyData.push({"x":item.dt,"y":item.precipitation})
+    })
+    console.log(xyData)
+}
 getData();
