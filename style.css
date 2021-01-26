@@ -25,6 +25,17 @@ body{
     margin-left: 3vw;
     padding-bottom: 1vh;
 }
+
+.summary div1{
+    position:absolute;
+    margin-left: 84vw;
+    margin-top:5.5vh;
+}
+.summary h4{
+    font-size: 30px;
+    color:rgb(158, 158, 158)
+}
+
 .summary img{
     height: 10%;
     position:absolute;
@@ -33,9 +44,9 @@ body{
 }
 
 .summary h1{
-    font-size: 100px;
+    font-size: 150px;
     float: right;
-    margin-right: 6vw;
+    margin-right: 10vw;
     margin-top: 1vh;
 }
 
@@ -80,6 +91,7 @@ body{
 .wind div2{
     float: left;
     width: 30%;
+    text-align: center;
 }
 
 .wind h1{
@@ -95,11 +107,14 @@ body{
 .wind img{
     height:auto;
     width: auto;
-    float:left;
     width: 10%;
     margin-left: 1.5vw;
 }
 
+.wind #windDirectionImage{
+    width: 35%;
+
+}
 .wind span{
     font-size: 50%;
 }
@@ -112,8 +127,7 @@ body{
 
 .hourly div{
     margin-left: 3vw;
-    margin-right: 3vw;
-    margin-top:2vh;
+    margin-top:1vh;
 }
 
 .hourly div1{
@@ -136,4 +150,147 @@ body{
     text-align: center;
     font-size: 1.75vh;
     margin-top: -1vh;
+}
+
+.hour{
+    height: 440px;
+    background-color: rgb(32, 32, 32);
+    margin-left: 3vw;
+    margin-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;;
+    padding-top: 1vh;
+    border-radius: 30px;
+}
+
+
+#windGuru{   
+    margin-left: 3vw !important;
+    margin-top: 1vh !important;
+    margin-right: 3vw !important;
+}
+
+
+iframe{
+    border-radius: 30px;
+    height: 100%;
+}
+
+
+.bottomNav{
+    background-color: rgb(32, 32, 32);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+}
+
+.bottomNav a{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.bottomNav img{
+    margin-top: 3%;
+    width: 20%;
+}
+
+
+
+
+.longTerm{
+    overflow-x: scroll;
+    white-space: nowrap;
+
+}
+
+.longTerm div{
+    margin-left: 3vw;
+    margin-top:1vh;
+}
+
+.longTerm div2{
+    background-color: rgb(32, 32, 32);
+    display:inline-block;
+    border-radius: 30px;
+    margin-right: 1vw;
+    padding-bottom: 1vh;
+    width: 48vw;
+    margin-bottom: 1vh;
+}
+
+.longTerm img{
+    height:10vh;
+}
+.longTerm h1{
+    margin-top: 10%;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.longTerm h2{
+    text-align: center;
+    font-size: 1.75vh;
+    
+}
+.longTerm h3{
+    float: right;
+    font-size: 300%;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
+.longTerm span{
+    font-size: 200%;
+    margin-right: -2vw;
+}
+
+
+
+
+
+
+.tides{
+    background-color: rgb(32, 32, 32);
+    margin-left:3vw;
+    margin-right:3vw;
+    margin-top: 1vh;
+    text-align: center;
+    border-radius: 30px;   
+    overflow-x: scroll;
+    white-space: nowrap;
+
+}
+
+#tideTable{
+    width:100%;
+    padding: 1vh 1vw 1vw 1vh;
+}
+
+li::marker{
+    font-size:0px;
+}
+.tides td{
+    width: 20%;
+    padding-right: 3%;
+}
+
+.tides li{
+    padding-top: 10%;
+}
+.tides tr{
+    overflow-x: scroll;
+}
+.lowTide {
+    color: rgb(143, 143, 143);
+}
+
+.tides caption{
+    display: none;
+}
+
+.tides th{
+    color: #E6AA46;
+    padding-right: 3%;
 }
