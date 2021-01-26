@@ -2,9 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="script.js"></script>
     </head>
-    <body>
+    <body onload="getData();">
         <section class="location">
             <div>
                 <h1>location</h1>
@@ -30,7 +31,18 @@
             <div id="hour">
             </div>
         </section>
+        <section class="longTerm">
+            <div id="longTerm"></div>
+        </section>
+        <section class="bottomNav">
+            <div>
+                <a href="./index.html"><img src="resources/weather-dark.png"></a>
+                <a href="./sail.html"><img src="/resources/sailboat-dark.png"></a>
+            </div>
+        </section>
     </body>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="script.js"></script>
+    
 </html>
+
+<!--https://www.windguru.cz/widget-fcst-iframe.php?s=53247&m=3&uid=wg_fwdg_53247_3_1530014247480&wj=knots&tj=c&odh=0&doh=24&fhours=240&vt=forecasts&p=WINDSPD,GUST,MWINDSPD,SMER,TMPE,APCPs,SLP&hostname=ndyc.org&url=https%3A%2F%2Fndyc.org%2Fweather-2%2F-->
+<!--<iframe scrolling="yes" seamless="seamless" style="border: none; width: 100%; overflow: hidden; height: 213px;" src="https://www.windguru.cz/widget-fcst-iframe.php?s=53247&amp;m=3&amp;uid=wg_fwdg_53247_3_1530014247480&amp;wj=knots&amp;tj=c&amp;odh=0&amp;doh=24&amp;fhours=24&amp;vt=forecasts&amp;p=WINDSPD,GUST,MWINDSPD,SMER,TMPE"></iframe>-->

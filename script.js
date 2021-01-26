@@ -1,4 +1,5 @@
 function getData(){
+    console.log("running")
     var req = new XMLHttpRequest();
     req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat=51.016685&lon=-4.206666&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
     req.onload = function(){
@@ -9,6 +10,7 @@ function getData(){
             showCurrentData(data);
             showHourlyData(hourlyData);
             sortMin(data.minutely)
+            showLongTermData(data)
         }else{
             console.log("error");
         }
@@ -77,7 +79,12 @@ function showCurrentData(data){
     var deg = document.createElement("div2");
     var degh1 = document.createElement("h2");
     degh1.appendChild(document.createTextNode(windDeg+"\u02DA"));
-    deg.appendChild(degh1);
+    //deg.appendChild(degh1);
+    var img = document.createElement("img");
+    img.setAttribute("src","./resources/arrow-dark.png");
+    img.setAttribute("style","transform: rotate("+(windDeg-90)+"deg)")
+    img.setAttribute("id","windDirectionImage")
+    deg.appendChild(img) 
 
     document.getElementById("wind").appendChild(speed);
     document.getElementById("wind").appendChild(gust);
@@ -118,37 +125,125 @@ function graphPrecipitation(min){
         backgroundColor: "rgb(0,0,0,0)",
         zoomEnabled: false,
         animationEnabled: true,
-        animationDuration: 1000,
-        title:{
-            text: "Precipitation over the next hour"},
-            fontColor:"#FFFFFF",
+        animationDuration: 800,
+        height: 400,
         axisY:{
             title: "Precipitation (mm)",
-            gridThickness: 0.2,
+            gridThickness: 0,
             titleFontColor:"white",
             labelFontColor:"white",
         },
         axisX:{
-            title: "Time",
-            titleFontColor:"white",
             labelFontColor:"white",
+        },
+        toolTip: {
+            enabled: false,
         },
         data: [
         {        
-        type: "area",
+        type: "splineArea",
+        color: "rgba(65, 101, 142, 0.5)",
         xValueType: "dateTime",
+        markerType:"none",
+        lineColor:"rgba(65, 101, 142)",
+        lineThickness: 5,
         dataPoints: min
-        }]
+        }],
         });
         chart.render();
 }
 
 
 function sortMin(data){
-    var xyData = []
+    xyData = []
+    
     data.forEach(function(item){
-        xyData.push({"x":item.dt,"y":item.precipitation})
+        var timeStamp = item.dt
+        var date = new Date(timeStamp*1000);
+        var hours = date.getHours();
+        xyData.push({"x":date,"y":item.precipitation})
     })
-    console.log(xyData)
+    graphPrecipitation(xyData);
 }
-getData();
+
+
+function getWindDirection(data){
+    var directions = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    var val = parseInt((data/22.5)+0.5);
+    console.log(directions[(val%16)]);
+}
+
+function showLongTermData(data){
+    var longTermData = data.daily;
+    longTermData.forEach(function(day){
+        var dayDiv = document.createElement("div2");
+        var img = document.createElement("img");
+        img.setAttribute("src","http://openweathermap.org/img/wn/"+day.weather[0].icon+"@2x.png");
+
+        var date = new Date(day.dt * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var month = months[date.getMonth()]
+        var dayNum = date.getDate();
+        var dayList = ["Mon","Tue","Wed","Thurs","Fri","Sat","Sun"]
+        var dayWord = dayList[date.getDay()]
+        var dateHeading = document.createElement("h1");
+        dateHeading.appendChild(document.createTextNode(dayWord + " " +dayNum+" "+month));
+
+        var description = document.createElement("h2");
+        var descriptionText = day.weather[0].description
+        description.appendChild(document.createTextNode(descriptionText))
+
+
+        var tempHeading = document.createElement("h3");
+        var tempMax = Math.round(day.temp.max);
+        var tempMin = Math.round(day.temp.min);
+        var maxSpan = document.createElement("span")
+        maxSpan.appendChild(document.createTextNode(tempMax+"\u02DA"));
+        tempHeading.appendChild(maxSpan)
+        tempHeading.appendChild(document.createTextNode(tempMin+"\u02DA"));
+
+
+        
+        dayDiv.appendChild(dateHeading)
+        dayDiv.appendChild(img)
+        dayDiv.appendChild(tempHeading)
+        dayDiv.appendChild(description)
+        document.getElementById("longTerm").appendChild(dayDiv)
+    })
+}
+
+function sun(){
+    var sunrise = new Date(day.sunrise*1000);
+    var sunset = new Date(day.sunset*1000);
+    if (String(sunrise.getMinutes()).length < 2){
+        var sunriseMins = ("0"+sunrise.getMinutes())
+    }else{
+        var sunriseMins = (sunrise.getMinutes())
+    }
+    if(String(sunrise.getHours()).length < 2){
+        var sunriseHours = ("0"+sunrise.getHours())
+    }else{
+        var sunriseHours = sunrise.getHours()
+    }
+    var sunriseTime = (sunriseHours+":"+sunriseMins)
+
+    if (String(sunset.getMinutes()).length < 2){
+        var sunsetMins = ("0"+sunset.getMinutes())
+    }else{
+        var sunsetMins = (sunset.getMinutes())
+    }
+    if(String(sunset.getHours()).length < 2){
+        var sunsetHours = ("0"+sunset.getHours())
+    }else{
+        var sunsetHours = sunset.getHours()
+    }
+    var sunsetTime = (sunsetHours+":"+sunsetMins)
+
+    sunsetImg = document.createElement("img");
+    sunsetImg.setAttribute("src","./resources/sunset.png");
+    sunsetImg.setAttribute("id","sunset")
+    sunriseImg = document.createElement("img");
+    sunriseImg.setAttribute("src","./resources/sunrise.png");
+    sunriseImg.setAttribute("id","sunrise")
+}
+
