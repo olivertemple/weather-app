@@ -329,13 +329,18 @@ function theme(){
                 //graphPrecipitation(xyData)
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
+                    theme()
+                })
             }else{
                 var elem = document.getElementsByTagName("body");
                 elem[0].setAttribute("class","light")
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
                 //graphPrecipitation(xyData)
-
+                window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(){
+                    theme()
+                })
             }
         }else{
             localStorage.theme = "light";
