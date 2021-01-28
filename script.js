@@ -1,7 +1,8 @@
 function getData(){
-    console.log("running")
     var req = new XMLHttpRequest();
-    req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat=51.016685&lon=-4.206666&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
+   
+    //req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat=51.03&lon=-4.18&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
+    req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat="+pos.Latitude+"&lon="+pos.Longitude+"&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
     req.onload = function(){
         if (req.status >= 200 && req.status < 400) {
             data = JSON.parse(req.response);
@@ -11,6 +12,9 @@ function getData(){
             showHourlyData(hourlyData);
             sortMin(data.minutely)
             showLongTermData(data)
+            data.daily.forEach(function(day){
+                sun(day)
+            });
         }else{
             console.log("error");
         }
@@ -103,16 +107,25 @@ function showHourlyData(hourlyData){
         var timeStamp = item.dt
         var date = new Date(timeStamp*1000);
         var hours = date.getHours();
+        var day = date.getDay()
+        var dayList = ["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"]
+        var dayString = dayList[day]
+
         if (String(hours).length == 1){
             hours = "0"+String(hours)
         }
         var time = document.createElement("h1");
         time.appendChild(document.createTextNode(hours+":00"))
         
+        var dayHeading = document.createElement("h3");
+        dayHeading.appendChild(document.createTextNode(dayString))
+
+
         var itemTemp = Math.round(item.temp)
         var temp = document.createElement("h2");
         temp.appendChild(document.createTextNode(itemTemp+"\u02DA"));
 
+        elem.appendChild(dayHeading)
         elem.appendChild(img);
         elem.appendChild(temp);
         elem.appendChild(time);
@@ -184,7 +197,7 @@ function showLongTermData(data){
         var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         var month = months[date.getMonth()]
         var dayNum = date.getDate();
-        var dayList = ["Mon","Tue","Wed","Thurs","Fri","Sat","Sun"]
+        var dayList = ["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"]
         var dayWord = dayList[date.getDay()]
         var dateHeading = document.createElement("h1");
         dateHeading.appendChild(document.createTextNode(dayWord + " " +dayNum+" "+month));
@@ -212,7 +225,30 @@ function showLongTermData(data){
     })
 }
 
-function sun(){
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }else{
+        console.log("geolocation error, using bideford");
+    }
+}
+
+function showPosition(position) {
+    pos = ({"Latitude":position.coords.latitude, "Longitude":position.coords.longitude});
+    console.log(pos)
+    document.getElementById("location").appendChild(document.createTextNode((Math.round(pos.Latitude*100))/100+", "+((Math.round(pos.Longitude*100))/100))) 
+    getData()
+}
+
+function showError(error) {
+    console.log("geolocation error, using London UK");
+    pos = ({"Latitude":51.5074, "Longitude":0.1278});
+    document.getElementById("location").appendChild(document.createTextNode("Location error, using London UK")) 
+    getData();
+}
+
+
+function sun(day){
     var sunrise = new Date(day.sunrise*1000);
     var sunset = new Date(day.sunset*1000);
     if (String(sunrise.getMinutes()).length < 2){
@@ -239,11 +275,48 @@ function sun(){
     }
     var sunsetTime = (sunsetHours+":"+sunsetMins)
 
-    sunsetImg = document.createElement("img");
-    sunsetImg.setAttribute("src","./resources/sunset.png");
-    sunsetImg.setAttribute("id","sunset")
-    sunriseImg = document.createElement("img");
-    sunriseImg.setAttribute("src","./resources/sunrise.png");
-    sunriseImg.setAttribute("id","sunrise")
+
+    var div = document.createElement("div");
+    div.setAttribute("id","sun")
+    var sunriseDiv1 = document.createElement("div1");
+    sunriseDiv1.setAttribute("id","sunrise")
+
+    var sunsetDiv1 = document.createElement("div1");
+    sunsetDiv1.setAttribute("id","sunset")
+
+    var sunsetImg = document.createElement("img");
+    sunsetImg.setAttribute("src","resources/sunset.png")
+
+    var sunriseImg = document.createElement("img");
+    sunriseImg.setAttribute("src","resources/sunrise.png")
+
+    sunsetDiv1.appendChild(sunsetImg);
+    sunriseDiv1.appendChild(sunriseImg);
+
+
+    var sunriseHeading = document.createElement("h1");
+    sunriseHeading.setAttribute("id","sunrise")
+    sunriseHeading.appendChild(document.createTextNode(sunriseTime));
+    var sunsetHeading = document.createElement("h1");
+    sunsetHeading.setAttribute("id","sunset")
+    sunsetHeading.appendChild(document.createTextNode(sunsetTime));
+
+    var date = new Date(day.dt * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var month = months[date.getMonth()]
+    var dayNum = date.getDate();
+    var dayList = ["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"]
+    var dayWord = dayList[date.getDay()]
+    var dateHeading = document.createElement("h2");
+    dateHeading.appendChild(document.createTextNode(dayWord + " " +dayNum+" "+month));
+    
+    sunriseDiv1.appendChild(sunriseHeading);
+    sunsetDiv1.appendChild(sunsetHeading);
+    div.appendChild(dateHeading);
+    div.appendChild(sunriseDiv1);
+    div.appendChild(sunsetDiv1);
+
+    document.getElementById("sunSection").appendChild(div)
+
 }
 

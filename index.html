@@ -5,10 +5,10 @@
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <script src="script.js"></script>
     </head>
-    <body onload="getData();">
+    <body onload="getLocation();">
         <section class="location">
             <div>
-                <h1>location</h1>
+                <h1 id="location"><img style="width:4%; margin-right: 1vw; margin-bottom: -0.2vh;"src="resources/location.png"></h1>
             </div>
         </section>
         <section class = "summary">
@@ -34,10 +34,23 @@
         <section class="longTerm">
             <div id="longTerm"></div>
         </section>
+        <section class="sun" id="sunSection">
+            <!--<div id="sun">
+                <div1 id="sunrise">
+                    <img src="resources/sunrise.png">
+                </div1>
+                <div1 id="sunset">
+                    <img src="resources/sunset.png">
+
+                </div1>
+            </div>-->
+        </section>
         <section class="bottomNav">
             <div>
-                <a href="./index.html"><img src="resources/weather-dark.png"></a>
-                <a href="./sail.html"><img src="/resources/sailboat-dark.png"></a>
+                <a href="./index.html" id="home"><img src="resources/weather-dark.png"></a>
+            </div>
+            <div>
+                <a href="./sail.html" id="sail"><img src="resources/sailboat-dark.png"></a>
             </div>
         </section>
     </body>
