@@ -317,7 +317,7 @@ function sun(day){
     div.appendChild(sunsetDiv1);
 
     document.getElementById("sunSection").appendChild(div)
-
+    document.getElementById('sunSection').scroll(100,0)
 }
 
 function theme(){

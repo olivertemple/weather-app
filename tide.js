@@ -5,6 +5,7 @@ function getTideData(){
         if (req.status >= 200 && req.status < 400) {
             tideData = (req.response);
             document.getElementById("tides").innerHTML = (tideData)
+            document.getElementById('tides').scroll(40,0)
         }else{
             console.log("error")
         }
