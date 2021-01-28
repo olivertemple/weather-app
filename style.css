@@ -7,7 +7,7 @@
 body{
     background-color: black;
     color: white;
-    height: 100vh;
+    margin-left: 3vw;
 }
 .location h1{
     color:white;
@@ -22,14 +22,13 @@ body{
     background-color: rgb(32,32,32);
     border-radius: 30px;
     height:16vh;
-    margin-left: 3vw;
     padding-bottom: 1vh;
 }
 
 .summary div1{
     position:absolute;
     margin-left: 84vw;
-    margin-top:5.5vh;
+    margin-top:12%;
 }
 .summary h4{
     font-size: 30px;
@@ -77,7 +76,6 @@ body{
 
 .wind{
     margin-top: 1vh;
-    margin-left: 3vw;
 }
 .wind #wind{
     width: 100%;
@@ -121,12 +119,13 @@ body{
 
 .hourly #hourly{
     overflow-x: scroll;
-    white-space: nowrap;
+    white-space: nowrap;    
+    scroll-snap-type: x mandatory;
+
 
 }
 
 .hourly div{
-    margin-left: 3vw;
     margin-top:1vh;
 }
 
@@ -136,6 +135,8 @@ body{
     border-radius: 30px;
     margin-right: 1vw;
     padding-bottom: 1vh;
+    scroll-snap-align: start;
+
 }
 
 .hourly img{
@@ -152,10 +153,15 @@ body{
     margin-top: -1vh;
 }
 
+.hourly h3{
+    text-align: center;
+    font-size: 1.75vh;
+    margin-bottom: -1.5vh;
+    margin-top: 0.5vh;
+}
 .hour{
     height: 440px;
     background-color: rgb(32, 32, 32);
-    margin-left: 3vw;
     margin-top: 1vh;
     padding-left: 1vw;
     padding-right: 1vw;;
@@ -164,31 +170,35 @@ body{
 }
 
 
-#windGuru{   
-    margin-left: 3vw !important;
-    margin-top: 1vh !important;
-    margin-right: 3vw !important;
-}
-
-
-iframe{
-    border-radius: 30px;
-    height: 100%;
-}
-
-
 .bottomNav{
-    background-color: rgb(32, 32, 32);
+    background-color: black;
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 7%;
+    border-top: 1vh black solid;
+}
+.bottomNav div{
+    background-color: rgb(32, 32, 32);
+    margin-left: -3vw;
 }
 
 .bottomNav a{
-    width: 50%;
+    width: 49%;
     float: left;
     text-align: center;
+    background-color: rgb(32, 32, 32);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding-bottom: 1vh;
+}
+
+.bottomNav #home{
+    margin-right: 1%;
+}
+
+.bottomNav #sail{
+    margin-left: 1%;
 }
 
 .bottomNav img{
@@ -202,12 +212,14 @@ iframe{
 .longTerm{
     overflow-x: scroll;
     white-space: nowrap;
+    scroll-snap-type: x mandatory;
+
 
 }
 
 .longTerm div{
-    margin-left: 3vw;
     margin-top:1vh;
+
 }
 
 .longTerm div2{
@@ -218,6 +230,9 @@ iframe{
     padding-bottom: 1vh;
     width: 48vw;
     margin-bottom: 1vh;
+    scroll-snap-align: start;
+
+
 }
 
 .longTerm img{
@@ -246,41 +261,97 @@ iframe{
     margin-right: -2vw;
 }
 
+.sun{
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+
+}
+.sun div{
+    background-color: rgb(32, 32, 32);
+    margin-left: 3vw;
+    border-radius: 30px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 9vh;
+    width: 97vw;
+    scroll-snap-align: start;
+
+}
+
+
+.sun #img{
+    width: 50%;
+}
+
+.sun #data{
+    width: 50%;
+}
+
+.sun h1{
+    font-size: 400%;
+    margin-top: -15%;
+}
+
+.sun h2{
+    font-size: 500%;
+}
+
+.sun img{
+    width: 50%;
+}
 
 
 
+
+#windGuru{   
+    margin-top: 1vh !important;
+    margin-right: 3vw !important;
+}
+
+
+iframe{
+    border-radius: 30px;
+    height: 100%;
+}
 
 
 .tides{
-    background-color: rgb(32, 32, 32);
-    margin-left:3vw;
-    margin-right:3vw;
     margin-top: 1vh;
     text-align: center;
     border-radius: 30px;   
     overflow-x: scroll;
     white-space: nowrap;
+    scroll-snap-type: x mandatory;
 
 }
 
 #tideTable{
     width:100%;
-    padding: 1vh 1vw 1vw 1vh;
+    padding: 1vh 1vw 1vh 1vw;
+    height: 100%;
+
 }
 
 li::marker{
     font-size:0px;
 }
+
+.tides thead{
+    height: 100%;
+}
 .tides td{
-    width: 20%;
-    padding-right: 3%;
+    padding-left: 3vw;
+    height: 100%;
 }
 
 .tides li{
     padding-top: 10%;
+    font-size: 250%;
 }
 .tides tr{
     overflow-x: scroll;
+    height: 100%;
 }
 .lowTide {
     color: rgb(143, 143, 143);
@@ -291,6 +362,68 @@ li::marker{
 }
 
 .tides th{
-    color: #E6AA46;
-    padding-right: 3%;
+    color: #e6ab46c9;
+    font-size: 300%;;
+}
+
+.tides ul{
+    width: 44vw;
+    background-color: rgb(32, 32, 32);
+    border-radius: 30px;
+    margin-right: 3vw;
+    padding-bottom: 1vh;
+    scroll-snap-align: start;
+    height: 100%;
+}
+
+
+.waves{
+    margin-top: 1vh;
+    padding-right: 3vw;
+    font-size: 100%;
+    height: 20vh;
+}
+
+.waves #wavesTitle{
+    text-align: center;
+    width: 100%;
+    font-size: 3vh;
+    margin-bottom: 1vh;
+}
+.waves div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+
+}
+
+.waves div1{
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+    border-radius: 30px;
+    margin-right: 1vw;
+    text-align: center;
+    scroll-snap-align: start;
+
+}
+
+.waves h1{
+    width: 27.3vw;
+}
+
+.waves div2{
+    position: fixed;
+    width: 15%;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-right: 1vw;
+}
+
+
+.waves #date{
+    color: #e6ab46c9;
 }
