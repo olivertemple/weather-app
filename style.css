@@ -1,16 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.dark{
+    --color-bg1: rgb(32,32,32);
+    --color-bg2: rgb(0, 0, 0);
+    --color-text1: rgb(255, 255, 255);
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(143, 143, 143);
+    --color-text4: rgb(158, 158, 158);
+    --color-summary: rgba(72, 72, 255, 0.303);
+}
+.light{
+    --color-bg1: rgba(169, 169, 169, 0.638);
+    --color-bg2: white;
+    --color-text1: black;
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(100, 100, 100);
+    --color-text4: rgb(75, 75, 75);
+    --color-summary:  rgba(72, 72, 255, 0.789);
+}
+
+
 *{
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+    transition: color 0.25s ease-in;
 }
+
+
+
 body{
-    background-color: black;
-    color: white;
+    background-color: var(--color-bg2);
+    color: var(--color-text1);
     margin-left: 3vw;
 }
 .location h1{
-    color:white;
+    color:var(--color-text1);
     font-size: 30px;
 }
 
@@ -19,7 +44,8 @@ body{
 }
 
 .summary{
-    background-color: rgb(32,32,32);
+    background-color: var(--color-summary);
+    transition: background-color 0.25s ease-in;
     border-radius: 30px;
     height:16vh;
     padding-bottom: 1vh;
@@ -32,7 +58,7 @@ body{
 }
 .summary h4{
     font-size: 30px;
-    color:rgb(158, 158, 158)
+    color:var(--color-text4)
 }
 
 .summary img{
@@ -80,7 +106,8 @@ body{
 .wind #wind{
     width: 100%;
     height: 6vh;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -130,7 +157,8 @@ body{
 }
 
 .hourly div1{
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     display:inline-block;
     border-radius: 30px;
     margin-right: 1vw;
@@ -161,7 +189,8 @@ body{
 }
 .hour{
     height: 440px;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     margin-top: 1vh;
     padding-left: 1vw;
     padding-right: 1vw;;
@@ -171,15 +200,21 @@ body{
 
 
 .bottomNav{
-    background-color: black;
+    background-color: var(--color-bg2);
+    transition: all 0.25s ease-in !important;
+    transition-duration: 0.25s;
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 7%;
-    border-top: 1vh black solid;
+    border-top: 1vh var(--color-bg2) solid;
 }
+
+
+
 .bottomNav div{
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     margin-left: -3vw;
 }
 
@@ -187,26 +222,39 @@ body{
     width: 49%;
     float: left;
     text-align: center;
-    background-color: rgb(32, 32, 32);
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
-    padding-bottom: 1vh;
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+    padding-bottom: 2%;
 }
 
 .bottomNav #home{
     margin-right: 1%;
+    float: left;
+
 }
 
 .bottomNav #sail{
     margin-left: 1%;
+    float: right;
 }
 
 .bottomNav img{
     margin-top: 3%;
     width: 20%;
+
 }
 
+.theme{
+    margin-bottom: 10vh;
+}
 
+.theme button{
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+}
 
 
 .longTerm{
@@ -223,7 +271,8 @@ body{
 }
 
 .longTerm div2{
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     display:inline-block;
     border-radius: 30px;
     margin-right: 1vw;
@@ -268,7 +317,8 @@ body{
 
 }
 .sun div{
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     margin-left: 3vw;
     border-radius: 30px;
     text-align: center;
@@ -305,7 +355,7 @@ body{
 
 
 #windGuru{   
-    margin-top: 1vh !important;
+    margin-top: 3vh !important;
     margin-right: 3vw !important;
 }
 
@@ -333,6 +383,7 @@ iframe{
 
 }
 
+
 li::marker{
     font-size:0px;
 }
@@ -354,7 +405,7 @@ li::marker{
     height: 100%;
 }
 .lowTide {
-    color: rgb(143, 143, 143);
+    color: var(--color-text3);
 }
 
 .tides caption{
@@ -362,13 +413,14 @@ li::marker{
 }
 
 .tides th{
-    color: #e6ab46c9;
+    color: var(--color-text2);
     font-size: 300%;;
 }
 
 .tides ul{
     width: 44vw;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     border-radius: 30px;
     margin-right: 3vw;
     padding-bottom: 1vh;
@@ -380,6 +432,7 @@ li::marker{
 .waves{
     margin-top: 1vh;
     padding-right: 3vw;
+    margin-bottom: 8%;
     font-size: 100%;
     height: 20vh;
 }
@@ -402,7 +455,8 @@ li::marker{
 
 .waves div1{
     width: 100%;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
     border-radius: 30px;
     margin-right: 1vw;
     text-align: center;
@@ -425,5 +479,5 @@ li::marker{
 
 
 .waves #date{
-    color: #e6ab46c9;
+    color: var(--color-text2);
 }

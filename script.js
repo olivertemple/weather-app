@@ -89,7 +89,7 @@ function showCurrentData(data){
     img.setAttribute("style","transform: rotate("+(windDeg-90)+"deg)")
     img.setAttribute("id","windDirectionImage")
     deg.appendChild(img) 
-
+    console.log({"gust":gust})
     document.getElementById("wind").appendChild(speed);
     document.getElementById("wind").appendChild(gust);
     document.getElementById("wind").appendChild(deg);
@@ -143,11 +143,11 @@ function graphPrecipitation(min){
         axisY:{
             title: "Precipitation (mm)",
             gridThickness: 0,
-            titleFontColor:"white",
-            labelFontColor:"white",
+            titleFontColor:"rgb(100, 100, 100)",
+            labelFontColor:"rgb(100, 100, 100)",
         },
         axisX:{
-            labelFontColor:"white",
+            labelFontColor:"rgb(100, 100, 100)",
         },
         toolTip: {
             enabled: false,
@@ -318,5 +318,55 @@ function sun(day){
 
     document.getElementById("sunSection").appendChild(div)
 
+}
+
+function theme(){
+    if (localStorage.theme == undefined){
+        if (window.matchMedia){
+            if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+                var elem = document.getElementsByTagName("body");
+                elem[0].setAttribute("class","dark")
+                //graphPrecipitation(xyData)
+                document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+            }else{
+                var elem = document.getElementsByTagName("body");
+                elem[0].setAttribute("class","light")
+                document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
+                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                //graphPrecipitation(xyData)
+
+            }
+        }else{
+            localStorage.theme = "light";
+            theme();
+        }
+    }else{
+        if(localStorage.theme != undefined){
+            console.log("here")
+            var elem = document.getElementsByTagName("body");
+            elem[0].setAttribute("class",localStorage.theme)
+            if (localStorage.theme=="dark"){
+                document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+            }else{
+                document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
+                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+            }
+        }else{
+            console.log("error")
+            localStorage.theme = "light";
+            theme();
+        }
+    }
+}        
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker
+        .register("./serviceWorker.js",{scope: './'})
+        .then(res => console.log("service worker registered"))
+        .catch(err => console.log("service worker not registered", err))
+    })
 }
 
