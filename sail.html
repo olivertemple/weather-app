@@ -2,11 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="manifest" href="manifest.json">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="./tide.js"></script>
 
     </head>
-    <body>
+    <body onload="theme();">
         <section class="location">
             <div>
                 <h1 id="location"><img style="width:4%; margin-right: 1vw; margin-bottom: -0.2vh;"src="resources/location.png">Instow</h1>
@@ -49,13 +50,13 @@
             <div id="waves">
             </div>
         </section>
-
-        <section class="bottomNav">
+        
+        <section class="bottomNav" id="Nav">
             <div>
-                <a href="./index.html" id="home"><img src="resources/weather-dark.png"></a>
+                <a href="./index.html" id="home"><img id="homeIcon"></a>
             </div>
             <div>
-                <a href="./sail.html" id="sail"><img src="resources/sailboat-dark.png"></a>
+                <a href="./sail.html" id="sail"><img id="sailIcon"></a>
             </div>
         </section>
     </body>

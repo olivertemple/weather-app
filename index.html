@@ -2,10 +2,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="manifest" href="manifest.json">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <script src="script.js"></script>
     </head>
-    <body onload="getLocation();">
+    <body onload="getLocation(); theme();">
         <section class="location">
             <div>
                 <h1 id="location"><img style="width:4%; margin-right: 1vw; margin-bottom: -0.2vh;"src="resources/location.png"></h1>
@@ -35,22 +36,13 @@
             <div id="longTerm"></div>
         </section>
         <section class="sun" id="sunSection">
-            <!--<div id="sun">
-                <div1 id="sunrise">
-                    <img src="resources/sunrise.png">
-                </div1>
-                <div1 id="sunset">
-                    <img src="resources/sunset.png">
-
-                </div1>
-            </div>-->
         </section>
-        <section class="bottomNav">
+        <section class="bottomNav" id="Nav">
             <div>
-                <a href="./index.html" id="home"><img src="resources/weather-dark.png"></a>
+                <a href="./index.html" id="home"><img id="homeIcon"></a>
             </div>
             <div>
-                <a href="./sail.html" id="sail"><img src="resources/sailboat-dark.png"></a>
+                <a href="./sail.html" id="sail"><img id="sailIcon"></a>
             </div>
         </section>
     </body>

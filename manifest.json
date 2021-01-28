@@ -1,0 +1,14 @@
+{
+    "name": "Weather",
+    "short_name": "Weather App",
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "icons":[
+        {
+            "src":"./resources/weather-light.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        }
+    ]
+}
