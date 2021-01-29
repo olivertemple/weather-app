@@ -3,10 +3,7 @@ const assets = [
   "./",
   "./index.html",
   "./sail.html",
-  "./style.css",
-  "./script.js",
   "./resources/",
-  "./tide.js",
 ];
 
 self.addEventListener("install", installEvent => {

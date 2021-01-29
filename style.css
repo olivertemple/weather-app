@@ -19,6 +19,29 @@
     --color-summary:  rgba(72, 72, 255, 0.789);
 }
 
+.red{
+    --color-bg1: rgba(90, 4, 4, 0.823) ;
+    --color-bg2: rgb(28, 0, 0);
+    --color-text1: rgb(255, 255, 255);
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(237, 80, 80);
+    --color-text4: rgb(58, 0, 0);
+    --color-summary:  rgba(181, 45, 45, 0.857);
+}
+
+.dark .hourly img{
+    filter: brightness(150%)
+}
+.dark .longTerm img{
+    filter: brightness(150%)
+}
+
+.red .hourly img{
+    filter: brightness(150%)
+}
+.red .longTerm img{
+    filter: brightness(150%)
+}
 
 *{
     font-family: 'Noto Sans KR', sans-serif;
@@ -32,23 +55,24 @@
 body{
     background-color: var(--color-bg2);
     color: var(--color-text1);
-    margin-left: 3vw;
+    /*margin-left: 3vw;*/
 }
 .location h1{
     color:var(--color-text1);
-    font-size: 30px;
+    /*font-size: 30px;*/
 }
 
+/*
 .location div{
     text-align: center;
-}
+}*/
 
 .summary{
     background-color: var(--color-summary);
     transition: background-color 0.25s ease-in;
-    border-radius: 30px;
+    /*border-radius: 30px;
     height:16vh;
-    padding-bottom: 1vh;
+    padding-bottom: 1vh;*/
 }
 
 .summary div1{
@@ -82,12 +106,13 @@ body{
     margin-left: 3vw;
 }
 
+/*
 .summary #feelsLike{
     text-align: center;
     margin-top:11vh;
     position: absolute;
     width: 100%;
-}
+}*/
 
 .summary h2{
     text-align: left;
@@ -100,17 +125,18 @@ body{
     margin-right: 10vw;
 }
 
-.wind{
+/*.wind{
     margin-top: 1vh;
-}
+}*/
+
 .wind #wind{
-    width: 100%;
-    height: 6vh;
+    /*width: 100%;
+    height: 6vh;*/
     background-color: var(--color-bg1);
     transition: background-color 0.25s ease-in;
-    border-radius: 30px;
+    /*border-radius: 30px;
     display: flex;
-    align-items: center;
+    align-items: center;*/
 }
 
 .wind div2{
@@ -128,13 +154,13 @@ body{
     font-size: 300%;
     text-align: center;
 }
-
+ /*
 .wind img{
     height:auto;
     width: auto;
     width: 10%;
     margin-left: 1.5vw;
-}
+}*/
 
 .wind #windDirectionImage{
     width: 35%;
@@ -144,17 +170,16 @@ body{
     font-size: 50%;
 }
 
+/*
 .hourly #hourly{
     overflow-x: scroll;
     white-space: nowrap;    
     scroll-snap-type: x mandatory;
-
-
-}
-
+}*/
+/*
 .hourly div{
     margin-top:1vh;
-}
+}*/
 
 .hourly div1{
     background-color: var(--color-bg1);
@@ -188,14 +213,15 @@ body{
     margin-top: 0.5vh;
 }
 .hour{
-    height: 440px;
+    
     background-color: var(--color-bg1);
     transition: background-color 0.25s ease-in;
+    /*height: 440px;
     margin-top: 1vh;
     padding-left: 1vw;
     padding-right: 1vw;;
     padding-top: 1vh;
-    border-radius: 30px;
+    border-radius: 30px;*/
 }
 
 
@@ -203,10 +229,10 @@ body{
     background-color: var(--color-bg2);
     transition: all 0.25s ease-in !important;
     transition-duration: 0.25s;
-    position: fixed;
+    /*position: fixed;
     bottom: 0;
     width: 100%;
-    height: 7%;
+    height: 7%;*/
     border-top: 1vh var(--color-bg2) solid;
 }
 
@@ -215,20 +241,20 @@ body{
 .bottomNav div{
     background-color: var(--color-bg1);
     transition: background-color 0.25s ease-in;
-    margin-left: -3vw;
+    /*margin-left: -3vw;*/
 }
 
 .bottomNav a{
-    width: 49%;
+    /*width: 49%;
     float: left;
     text-align: center;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
+    padding-bottom: 2%;*/
     background-color: var(--color-bg1);
     transition: background-color 0.25s ease-in;
-    padding-bottom: 2%;
 }
-
+ /*
 .bottomNav #home{
     margin-right: 1%;
     float: left;
@@ -241,34 +267,22 @@ body{
 }
 
 .bottomNav img{
-    margin-top: 3%;
+    margin-top: 3%; 
     width: 20%;
-
-}
-
-.theme{
-    margin-bottom: 10vh;
-}
-
-.theme button{
-    border-radius: 50%;
-    width: 5vh;
-    height: 5vh;
-}
+}*/
 
 
+/*
 .longTerm{
     overflow-x: scroll;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
-
-
 }
 
 .longTerm div{
     margin-top:1vh;
 
-}
+}*/
 
 .longTerm div2{
     background-color: var(--color-bg1);
@@ -310,12 +324,15 @@ body{
     margin-right: -2vw;
 }
 
+
+/*
 .sun{
     overflow-x: scroll;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
-
 }
+*/
+
 .sun div{
     background-color: var(--color-bg1);
     transition: background-color 0.25s ease-in;
@@ -364,9 +381,11 @@ body{
 iframe{
     border-radius: 30px;
     height: 100%;
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
 
-
+/*
 .tides{
     margin-top: 1vh;
     text-align: center;
@@ -374,8 +393,8 @@ iframe{
     overflow-x: scroll;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
-
-}
+    margin-left: 4.5vw;
+}*/
 
 #tideTable{
     width:100%;
@@ -429,7 +448,7 @@ li::marker{
     height: 100%;
 }
 
-
+/*
 .waves{
     margin-top: 1vh;
     padding-right: 3vw;
@@ -451,8 +470,7 @@ li::marker{
     overflow-x: scroll;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
-
-}
+}*/
 
 .waves div1{
     width: 100%;
@@ -468,7 +486,7 @@ li::marker{
 .waves h1{
     width: 27.3vw;
 }
-
+ /*
 .waves div2{
     position: fixed;
     width: 15%;
@@ -476,7 +494,7 @@ li::marker{
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     margin-right: 1vw;
-}
+}*/
 
 
 .waves #date{

@@ -1,7 +1,5 @@
 function getData(){
     var req = new XMLHttpRequest();
-   
-    //req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat=51.03&lon=-4.18&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
     req.open("GET","https://api.openweathermap.org/data/2.5/onecall?lat="+pos.Latitude+"&lon="+pos.Longitude+"&units=metric&appid=02d50df157b5697c98fc6534829593db",true);
     req.onload = function(){
         if (req.status >= 200 && req.status < 400) {
@@ -24,7 +22,7 @@ function getData(){
 
 function showCurrentData(data){
     var currentData = data.current
-    var url = "http://openweathermap.org/img/wn/"+currentData.weather[0].icon+"@2x.png"
+    var url = "https://openweathermap.org/img/wn/"+currentData.weather[0].icon+"@2x.png"
     var temp = document.createElement("h1");
     temp.appendChild(document.createTextNode((Math.round(currentData.temp))+"\u02DA"));
     
@@ -51,7 +49,7 @@ function showCurrentData(data){
     maxMin.appendChild(max)
     maxMin.appendChild(min)
 
-
+    img.setAttribute("onclick","changeTheme();")
     document.getElementById("topSummary").appendChild(img);
     document.getElementById("topSummary").appendChild(temp);
     document.getElementById("topSummary").appendChild(maxMin)
@@ -102,7 +100,7 @@ function showHourlyData(hourlyData){
         var elem = document.createElement("div1");
         var img = document.createElement("img");
         
-        img.setAttribute("src","http://openweathermap.org/img/wn/"+item.weather[0].icon+"@2x.png");
+        img.setAttribute("src","https://openweathermap.org/img/wn/"+item.weather[0].icon+"@2x.png");
 
         var timeStamp = item.dt
         var date = new Date(timeStamp*1000);
@@ -180,18 +178,13 @@ function sortMin(data){
 }
 
 
-function getWindDirection(data){
-    var directions = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
-    var val = parseInt((data/22.5)+0.5);
-    console.log(directions[(val%16)]);
-}
 
 function showLongTermData(data){
     var longTermData = data.daily;
     longTermData.forEach(function(day){
         var dayDiv = document.createElement("div2");
         var img = document.createElement("img");
-        img.setAttribute("src","http://openweathermap.org/img/wn/"+day.weather[0].icon+"@2x.png");
+        img.setAttribute("src","https://openweathermap.org/img/wn/"+day.weather[0].icon+"@2x.png");
 
         var date = new Date(day.dt * 1000);
         var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -332,6 +325,7 @@ function theme(){
                 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
                     theme()
                 })
+                theme = 1
             }else{
                 var elem = document.getElementsByTagName("body");
                 elem[0].setAttribute("class","light")
@@ -341,10 +335,12 @@ function theme(){
                 window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(){
                     theme()
                 })
+                theme = 2
             }
         }else{
             localStorage.theme = "light";
             theme();
+            theme = 2
         }
     }else{
         if(localStorage.theme != undefined){
@@ -354,17 +350,46 @@ function theme(){
             if (localStorage.theme=="dark"){
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                theme = 1
             }else{
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                theme = 2
             }
         }else{
             console.log("error")
             localStorage.theme = "light";
             theme();
+            theme = 2
         }
     }
 }        
+
+function changeTheme(){
+    console.log("Well done! You found the secret theme button!")
+    if (theme+1 < 4){
+        theme += 1
+    }else{
+        theme = 1
+    }
+    if (theme == 1){
+        localStorage.theme = ("dark")
+    document.getElementsByTagName("body")[0].setAttribute("class","dark")
+    document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+    document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+    }else if(theme == 2){
+        localStorage.theme=("light") 
+    document.getElementsByTagName("body")[0].setAttribute("class","light")
+    document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
+    document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+    }else if(theme == 3){
+        localStorage.theme = ("red") 
+    document.getElementsByTagName("body")[0].setAttribute("class","red")
+    document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+    document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+    }
+}
+
 
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
