@@ -3,10 +3,12 @@
     <head>
         <title>Weather</title>
         <meta name="viewport">
-
+        <meta charset="UTF-8">
+        <meta name="theme-color" content="rgb(32,32,32)">
         <link rel="manifest" href="manifest.json">
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <link rel="apple-touch-icon" sizes="512x512" href="resources/weather-dark.png">
+        <script src="./canvasjs.min.js"></script>
+        <link rel="apple-touch-icon" sizes="512x512" href="resources/maskable_icon_x192.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="resources/maskable_icon_x180.png">
         <link rel="preconnect" href="https://api.openweathermap.org">
 
         <style>
@@ -278,6 +280,9 @@
         </style>
     </head>
     <body style="margin-left: 3vw;">
+        <noscript>
+            <h1>javascript is required for this web app to run</h1>
+        </noscript>
         <script type="text/javascript">
             if ("serviceWorker" in navigator) {
                 window.addEventListener("load", function() {

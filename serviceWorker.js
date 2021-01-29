@@ -4,6 +4,7 @@ const assets = [
   "./index.html",
   "./sail.html",
   "./resources/",
+  "./canvasjs.min.js"
 ];
 
 self.addEventListener("install", installEvent => {

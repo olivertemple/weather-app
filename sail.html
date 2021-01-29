@@ -3,9 +3,11 @@
     <head>
         <title>Weather</title>
         <meta name="viewport">
-
+        <meta charset="UTF-8">
+        <meta name="theme-color" content="rgb(32,32,32)">
         <link rel="manifest" href="manifest.json">
-        <link rel="apple-touch-icon" sizes="512x512" href="resources/weather-dark.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="resources/maskable_icon_x192.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="resources/maskable_icon_x180.png">
         <link rel="preconnect" href="https://www.windguru.cz/widget-fcst-iframe.php?s=53247&m=3&uid=wg_fwdg_53247_3_1530014247480&wj=bft&tj=c&odh=0&doh=24&fhours=240&vt=forecasts&p=WINDSPD,GUST,MWINDSPD,SMER,TMPE,APCPs,SLP&hostname=127.0.0.1&url=http%3A%2F%2F127.0.0.1%3A5500%2Fsail.html">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
@@ -179,9 +181,15 @@
                 background-color: var(--color-bg1);
                 transition: background-color 0.25s ease-in;
             }
+
+
+            
         </style>
     </head>
     <body>
+        <noscript>
+            <h1>javascript is required for this web app to run</h1>
+        </noscript>
         <script type="text/javascript">
             if ("serviceWorker" in navigator) {
                 window.addEventListener("load", function() {
