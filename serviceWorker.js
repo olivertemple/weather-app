@@ -1,4 +1,4 @@
-const mem = "weather";
+/*const mem = "weather";
 const assets = [
   "./",
   "./index.html",
