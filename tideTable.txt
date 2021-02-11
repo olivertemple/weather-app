@@ -1,1 +1,8 @@
-None
+<table class="twelve" id="tideTable" summary="7 day tide times for Westward Ho!.">
+<tr>
+<th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th><th class="hide-for-small">Mon</th><th class="hide-for-small">Tue</th><th class="hide-for-small">Wed</th>
+</tr>
+<tr>
+<td><ul><li><b>High 5:47am</b><br>(8.94m)</br></li><li class="lowTide"><b>Low 11:56am</b><br>(1.17m)</br></li><li><b>High 6:11pm</b><br>(8.80m)</br></li></ul></td><td><ul><li class="lowTide"><b>Low 12:16am</b><br>(1.18m)</br></li><li><b>High 6:30am</b><br>(9.21m)</br></li><li class="lowTide"><b>Low 12:37pm</b><br>(0.97m)</br></li><li><b>High 6:51pm</b><br>(8.95m)</br></li></ul></td><td><ul><li class="lowTide"><b>Low 12:52am</b><br>(1.04m)</br></li><li><b>High 7:09am</b><br>(9.30m)</br></li><li class="lowTide"><b>Low 1:13pm</b><br>(0.91m)</br></li><li><b>High 7:27pm</b><br>(8.96m)</br></li></ul></td><td><ul><li class="lowTide"><b>Low 1:24am</b><br>(1.03m)</br></li><li><b>High 7:44am</b><br/>(9.24m)</li><li class="lowTide"><b>Low 1:44pm</b><br/>(0.97m)</li><li><b>High 8:00pm</b><br/>(8.85m)</li></ul></td><td class="hide-for-small"><ul><li class="lowTide"><b>Low 1:53am</b><br/>(1.12m)</li><li><b>High 8:17am</b><br/>(9.03m)</li><li class="lowTide"><b>Low 2:13pm</b><br/>(1.14m)</li><li><b>High 8:30pm</b><br/>(8.62m)</li></ul></td><td class="hide-for-small"><ul><li class="lowTide"><b>Low 2:21am</b><br/>(1.33m)</li><li><b>High 8:47am</b><br/>(8.71m)</li><li class="lowTide"><b>Low 2:40pm</b><br/>(1.42m)</li><li><b>High 8:58pm</b><br/>(8.30m)</li></ul></td><td class="hide-for-small"><ul><li class="lowTide"><b>Low 2:48am</b><br/>(1.65m)</li><li><b>High 9:16am</b><br/>(8.29m)</li><li class="lowTide"><b>Low 3:08pm</b><br/>(1.79m)</li><li><b>High 9:26pm</b><br/>(7.90m)</li></ul></td>
+</tr>
+</table>
