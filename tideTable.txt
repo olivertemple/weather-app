@@ -1,13 +1,1 @@
-<table id="tideTable">
-<thead>
-<tr>
-<th>Fri, 29th</th><th>Sat, 30th</th><th>Sun, 31st</th><th class="hide-for-small-only">Mon, 1st</th><th class="hide-for-small-only">Tue, 2nd</th><th class="hide-for-small-only">Wed, 3rd</th><th class="hide-for-small-only">Thu, 4th</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><ul><li class="lowTide"><b>Low 12:02am</b><br/>(1.31m)</li><li><b>High 6:19am</b><br/>(8.93m)</li><li class="lowTide"><b>Low 12:27pm</b><br/>(1.19m)</li><li><b>High 6:43pm</b><br/>(8.88m)</li></ul></td><td><ul><li class="lowTide"><b>Low 12:41am</b><br/>(1.08m)</li><li><b>High 6:59am</b><br/>(9.18m)</li><li class="lowTide"><b>Low 1:06pm</b><br/>(0.99m)</li><li><b>High 7:23pm</b><br/>(9.04m)</li></ul></td><td><ul><li class="lowTide"><b>Low 1:19am</b><br/>(0.95m)</li><li><b>High 7:39am</b><br/>(9.31m)</li><li class="lowTide"><b>Low 1:44pm</b><br/>(0.91m)</li><li><b>High 8:03pm</b><br/>(9.09m)</li></ul></td><td class="hide-for-small-only"><ul><li class="lowTide"><b>Low 1:57am</b><br/>(0.94m)</li><li><b>High 8:19am</b><br/>(9.31m)</li><li class="lowTide"><b>Low 2:23pm</b><br/>(0.96m)</li><li><b>High 8:43pm</b><br/>(8.98m)</li></ul></td><td class="hide-for-small-only"><ul><li class="lowTide"><b>Low 2:36am</b><br/>(1.07m)</li><li><b>High 9:00am</b><br/>(9.14m)</li><li class="lowTide"><b>Low 3:02pm</b><br/>(1.16m)</li><li><b>High 9:24pm</b><br/>(8.72m)</li></ul></td><td class="hide-for-small-only"><ul><li class="lowTide"><b>Low 3:17am</b><br/>(1.34m)</li><li><b>High 9:43am</b><br/>(8.82m)</li><li class="lowTide"><b>Low 3:43pm</b><br/>(1.51m)</li><li><b>High 10:08pm</b><br/>(8.34m)</li></ul></td><td class="hide-for-small-only"><ul><li class="lowTide"><b>Low 4:01am</b><br/>(1.73m)</li><li><b>High 10:30am</b><br/>(8.36m)</li><li class="lowTide"><b>Low 4:31pm</b><br/>(1.97m)</li><li><b>High 10:58pm</b><br/>(7.87m)</li></ul></td>
-</tr>
-</tbody>
-<caption>7 day tide times for Westward Ho!</caption>
-</table>
+None

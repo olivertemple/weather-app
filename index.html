@@ -13,7 +13,8 @@
 
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-
+            *{
+            }
             .dark{
                 --color-bg1: rgb(32,32,32);
                 --color-bg2: rgb(0, 0, 0);
@@ -207,6 +208,8 @@
                 transition: background-color 0.25s ease-in;
             }
 
+
+
             .longTerm div2{
                 background-color: var(--color-bg1);
                 transition: background-color 0.25s ease-in;
@@ -277,9 +280,316 @@
             .sun img{
                 width: 50%;
             }
+            .longTerm br{
+                display: none;
+            }
+
+            @media only screen and (min-width: 1024px) and (orientation: landscape){
+                body{
+                    margin-left: 0px !important;
+                    margin-right: 0px !important;
+                    overflow-x: hidden;
+
+                }
+
+                ::-webkit-scrollbar{
+                    background: rgba(0,0,0,0);
+                    height: 5px;
+                    width: 5px;
+                }
+                ::-webkit-scrollbar-thumb{
+                    background-color: var(--color-bg1);
+                    height: 1px;
+                }
+                ::-webkit-scrollbar-thumb:hover{
+                    background-color: rgb(65, 64, 64);
+                }
+
+
+                .location h1{
+                    font-size: 15px !important;
+                }
+                .location img{
+                    width: 1.5% !important;
+                }
+
+
+                .summary{
+                    height: 50vh !important;
+                    width: 48vw;
+                    margin-bottom: 2vh !important;
+                    margin-left: 1vw;
+                    margin-right: 1vw;
+                    float: left;
+                }
+                .summary img{
+                    width: 30vh !important;
+                    height: 30vh !important;
+                }
+                .summary h1{
+                    margin-top: 3vh;
+                    font-size: 15vh !important;
+                }
+                .summary div1{
+                    margin-top: 12vh !important;
+                    margin-left: 36vw;
+                }
+                .summary h4{
+                    font-size: 3vh !important;
+                }
+                .summary h3{
+                    margin-top: 22vh !important;
+                    font-size: 8vh !important;
+                }
+
+                .summary #feelsLike{
+                    margin-top: 35vh !important;
+                    margin-right: 1vw;
+                    margin-left: 1vw;
+                }
+                .summary span{
+                    float: none;
+                    margin-left: 15vw;
+                }
+
+
+                .wind{
+                    position: absolute;
+                    top: 3vh;
+                    right: 0.5vw;
+                    width: 49.5vw;
+                    float: right;
+
+                }
+                .wind #wind{
+                    height: 15vh !important;
+                }
+                
+
+                .hourly{
+                    margin-top: 17.5vh;
+                    margin-left: 1vw;
+                    margin-right: 0.5vw;
+                    height: 35vh !important;
+
+                }
+                #hourly{
+                    height: 35vh !important;
+                }
+                .hourly div1{
+                    width: calc(25% - 0.75vw);
+                    height:calc(100% - 5px - 1vh) !important;
+                    text-align: center;
+                }
+                .hourly h3, h2{
+                    font-size: 5vh !important;
+                }  
+                .hourly h2{
+                    margin-top: -15%;
+                }
+
+                .hourly h1{
+                    font-size: 3vh !important;
+                    padding: 1vh
+                }
+                .hourly img{
+                    width: 100px;
+                    height: 100px;
+                }
+
+
+                .hour{
+                    position: absolute;
+                    margin-left: 1vw;
+                    margin-right: 1vw;
+                    margin-bottom: 1vw;
+                    width: 46vw;
+                    padding-bottom: 1vw;
+                    height: 40vh !important;
+                    float: left;
+                }
+                .canvasjs-chart-canvas{
+                    height: 40vh !important;
+                }
+
+
+                .longTerm{
+                    margin-left: 50vw !important;
+                    float: right;
+                    width: 49vw;
+                    height: 43vh;
+                    margin-bottom: 0px;
+                    position: absolute;
+                    overflow-y: hidden;
+                }
+                
+                .longTerm div2{
+                    height: 40vh;
+                    margin-right: 0px;
+                    width: calc(50% - 0.5vw);
+                    margin-right: 1vw;
+                }
+                .longTerm h1{
+                    font-size: 5vh;
+                }
+                .longTerm h2{
+                    margin-top: -5vh;
+                }
+                .longTerm h3{
+                    font-size: 5vh;
+                    margin-top: 0px;
+                }
+                .longTerm img{
+                    width: 50%;
+                    height: 50%;
+                }
+                .longTerm br{
+                    display: block;
+                }
+
+                .sun{
+                    display: none;
+                }
+
+
+                #desktopNav{
+                    display: inline-block !important;
+                    position: absolute;
+                    border-radius: 10%;
+                    cursor: pointer;
+                    z-index: 2;
+                    background-color: var(--color-bg1);
+                    text-align: center;
+                    padding: 10px;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    display: block !important;
+                }
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: var(--color-text3);
+                    margin: 6px 0;
+                    transition: 0.5s;
+                    display: block !important;
+                }
+                .change .bar1 {
+                    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                    margin-left: 200px;
+                }
+                .change .bar2 {opacity: 0;}
+                .change .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                    margin-left: 200px;
+                }
+                
+
+                .sideNav {
+                    height: 100%;
+                    width: 0;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: var(--color-bg2);
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                    padding-top: 60px;
+                    display: block !important;
+                }
+
+                .sideNav a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #a2a2a2;
+                    display: block !important;
+                    transition: 0.3s;
+                }
+
+                .sideNav a:hover {
+                    color: white;
+                }
+
+        
+                .sideNav .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+                    display: block !important;
+                }
+                .sideNav .active{
+                    color:var(--color-text2);
+                }
+                .sideNavImg{
+                    width: 15%;
+                    display: inline !important;
+                }
+
+                .bottomNav{
+                    display: none !important;
+                }
+
+            }
+
         </style>
     </head>
     <body style="margin-left: 3vw;">
+
+        <div id="desktopNav" style="display: none;" onclick="animateDesktopNav(this); toggleNav()">
+            <div class="bar1" style="display: none;"></div>
+            <div class="bar2" style="display: none;"></div>
+            <div class="bar3" style="display: none;"></div>
+        </div>
+        <div class="sideNav" id="sideNav" style="display: none;">
+            <a href="index.html" class="active" style="display: none;"><img class="sideNavImg" id="homeIcon" style="display: none;"> Home</a>
+            <a href="sail.html" style="display: none;"><img class="sideNavImg" id="sailIcon" style="display: none;"> Sail</a>
+        </div>
+        <script>
+            function animateDesktopNav(){
+                document.getElementById("desktopNav").classList.toggle("change");
+            }
+            function openNav() {
+                document.getElementById("sideNav").style.width = "250px";
+                window.onkeyup = (function(event){
+                    if(event.code == 27){
+                        console.log("esc")
+                        closeNav();
+                    }
+                })
+            }
+
+            function closeNav() {
+                document.getElementById("sideNav").style.width = "0";
+            }
+
+            function toggleNav(){
+                if (document.getElementById("desktopNav").classList.contains("change")){
+                    openNav();
+                }else{
+                    closeNav();
+                }
+            }
+
+            document.onkeydown = function(evt) {
+                evt = evt || window.event;
+                var isEscape = false;
+                if ("key" in evt) {
+                    isEscape = (evt.key === "Escape" || evt.key === "Esc");
+                } else {
+                    isEscape = (evt.keyCode === 27);
+                }
+                if (isEscape) {
+                    closeNav();
+                    animateDesktopNav();
+                }
+            };
+        </script>
+
         <noscript>
             <h1>javascript is required for this web app to run</h1>
         </noscript>
@@ -292,6 +602,8 @@
                     .catch(err => console.log("service worker not registered", err))
                 })
             }
+
+
             function getLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -306,12 +618,12 @@
                 document.getElementById("location").appendChild(document.createTextNode((Math.round(pos.Latitude*100))/100+", "+((Math.round(pos.Longitude*100))/100))) 
                 getData()
             }
-
             function showError(error) {
                 console.log("geolocation error, using London UK");
                 pos = ({"Latitude":51.5074, "Longitude":0.1278});
                 document.getElementById("location").appendChild(document.createTextNode("Location error, using London UK")) 
                 getData()
+                
             }
             getLocation()
 
@@ -329,12 +641,24 @@
                         showLongTermData(data)
                         data.daily.forEach(function(day){
                             sun(day)
-                        });
-                    }else{
-                        console.log("error");
+                        })
+                        localStorage.mostRecentData = JSON.stringify(data)
                     }
                 } 
                 req.send();
+                req.onerror = function(){
+                    data = JSON.parse(localStorage.mostRecentData)
+                    currentData = data.current;
+                    hourlyData = data.hourly;
+                    showCurrentData(data);
+                    showHourlyData(hourlyData);
+                    sortMin(data.minutely)
+                    showLongTermData(data)
+                    data.daily.forEach(function(day){
+                        sun(day)
+                    })
+                    alert("No Internet Connection Detected! Using Most Recent Data.")
+                }
             }
         </script>
         <section class="location">
@@ -442,16 +766,22 @@
                 document.getElementsByTagName("body")[0].setAttribute("class","dark")
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                 }else if(theme == 2){
                     localStorage.theme=("light") 
                 document.getElementsByTagName("body")[0].setAttribute("class","light")
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
                 }else if(theme == 3){
                     localStorage.theme = ("red") 
                 document.getElementsByTagName("body")[0].setAttribute("class","red")
                 document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                 document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                 }
             }
         </script>
@@ -577,8 +907,11 @@
 
                     var description = document.createElement("h2");
                     var descriptionText = day.weather[0].description
-                    description.appendChild(document.createTextNode(descriptionText))
-
+                    descriptionText = descriptionText.split(" ")
+                    console.log(descriptionText)
+                    description.appendChild(document.createTextNode(descriptionText[0]))
+                    description.appendChild(document.createElement("br"))
+                    description.appendChild(document.createTextNode(descriptionText[1]))
 
                     var tempHeading = document.createElement("h3");
                     var tempMax = Math.round(day.temp.max);
@@ -676,10 +1009,10 @@
         </script>
         <section class="bottomNav" id="Nav" style="position: fixed; bottom: 0; width: 100%; height: 7%;">
             <div style="margin-left: -3vw;">
-                <a href="./index.html" id="home" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%;margin-right: 1%; float: left;"><img id="homeIcon" style="margin-top: 3%; width: 20%;"></a>
+                <a href="./index.html" id="home" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%;margin-right: 1%; float: left;"><img id="homeIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
             <div style="margin-left: -3vw;">
-                <a href="./sail.html" id="sail" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%; margin-left: 1%; float: right;"><img id="sailIcon" style="margin-top: 3%; width: 20%;"></a>
+                <a href="./sail.html" id="sail" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%; margin-left: 1%; float: right;"><img id="sailIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
         </section>
 
@@ -692,6 +1025,8 @@
                         //graphPrecipitation(xyData)
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
                             theme()
                         })
@@ -701,6 +1036,8 @@
                         elem[0].setAttribute("class","light")
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
                         //graphPrecipitation(xyData)
                         window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(){
                             theme()
@@ -720,10 +1057,14 @@
                     if (localStorage.theme=="dark"){
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                         theme = 1
                     }else{
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
-                        document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                        document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png")
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
                         theme = 2
                     }
                 }else{

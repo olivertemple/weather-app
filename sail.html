@@ -182,11 +182,229 @@
                 transition: background-color 0.25s ease-in;
             }
 
+            @media only screen and (min-width: 1024px) and (orientation: landscape){
+                ::-webkit-scrollbar{
+                    background: rgba(0,0,0,0);
+                    height: 5px;
+                    width: 5px;;
+                }
+                ::-webkit-scrollbar-thumb{
+                    background-color: var(--color-bg1);
+                    height: 1px;
+                }
+                ::-webkit-scrollbar-thumb:hover{
+                    background-color: rgb(65, 64, 64);
+                }
 
-            
+                body{
+                    margin-left: 0px !important;
+                    overflow-x: hidden;
+                }
+                
+                .location h1{
+                    font-size: 15px !important;
+                }
+                .location img{
+                    width: 1.5% !important;
+                }
+
+
+
+                .windGuru{
+                    margin-right: 1vw;
+                    margin-left: -2vw;
+                }
+
+
+                .tides{
+                    margin-left: 0vw !important;
+                }
+                .tides td{
+                    padding-left: 0vw;
+                    height: 100%;
+                }
+                .tides li{
+                    padding-top: 10%;
+                    font-size: 100%;
+                }
+                .tides tr{
+                    overflow-x: scroll;
+                    height: 100%;
+                }
+                .tides th{
+                    font-size: 150%;;
+                }
+                .tides ul{
+                    width: 12vw;
+                    border-radius: 30px;
+                    margin-right: 1vw;
+                    padding-bottom: 1vh;
+                    scroll-snap-align: start;
+                    height: 100%;
+                }
+
+
+
+                .waves div2{
+                    position: relative !important;
+                    float: left;
+                }
+                .waves div1{
+                    width: 15vw;
+                }
+                .waves h1{
+                    width: 15vw;
+                }
+
+
+
+                #desktopNav{
+                    display: inline-block !important;
+                    position: absolute;
+                    border-radius: 10%;
+                    cursor: pointer;
+                    z-index: 2;
+                    background-color: var(--color-bg1);
+                    text-align: center;
+                    padding: 10px;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                }
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: var(--color-text3);
+                    margin: 6px 0;
+                    transition: 0.5s;
+                }
+                .change .bar1 {
+                    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                    margin-left: 200px;
+                }
+                .change .bar2 {opacity: 0;}
+                .change .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                    margin-left: 200px;
+                }
+                
+
+                #desktopNav{
+                    display: inline-block !important;
+                    position: absolute;
+                    border-radius: 10%;
+                    cursor: pointer;
+                    z-index: 2;
+                    background-color: var(--color-bg1);
+                    text-align: center;
+                    padding: 10px;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    display: block !important;
+                }
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: var(--color-text3);
+                    margin: 6px 0;
+                    transition: 0.5s;
+                    display: block !important;
+                }
+                .change .bar1 {
+                    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                    margin-left: 200px;
+                }
+                .change .bar2 {opacity: 0;}
+                .change .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                    margin-left: 200px;
+                }
+                
+
+                .sideNav {
+                    height: 100%;
+                    width: 0;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: var(--color-bg2);
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                    padding-top: 60px;
+                    display: block !important;
+                }
+
+                .sideNav a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #a2a2a2;
+                    display: block !important;
+                    transition: 0.3s;
+                }
+
+                .sideNav a:hover {
+                    color: white;
+                }
+
+        
+                .sideNav .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+                    display: block !important;
+                }
+                .sideNav .active{
+                    color:var(--color-text2);
+                }
+                .sideNavImg{
+                    width: 15%;
+                    display: inline !important;
+                }
+
+                .bottomNav{
+                    display: none !important;
+                }
+            }
         </style>
     </head>
-    <body>
+    <body style="margin-left: 3vw;">
+
+        <div id="desktopNav" style="display: none;" onclick="animateDesktopNav(this); toggleNav()">
+            <div class="bar1" style="display: none;"></div>
+            <div class="bar2" style="display: none;"></div>
+            <div class="bar3" style="display: none;"></div>
+        </div>
+        <div class="sideNav" id="sideNav" style="display: none;">
+            <a href="index.html" style="display: none;"><img class="sideNavImg" id="homeIcon" style="display: none;"> Home</a>
+            <a href="sail.html" class="active" style="display: none;"><img class="sideNavImg" id="sailIcon" style="display: none;"> Sail</a>
+        </div>
+        <script>
+            function animateDesktopNav(){
+                document.getElementById("desktopNav").classList.toggle("change");
+            }
+            function openNav() {
+                document.getElementById("sideNav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("sideNav").style.width = "0";
+            }
+
+            function toggleNav(){
+                if (document.getElementById("desktopNav").classList.contains("change")){
+                    openNav();
+                }else{
+                    closeNav();
+                }
+            }
+        </script>
         <noscript>
             <h1>javascript is required for this web app to run</h1>
         </noscript>
@@ -233,11 +451,18 @@
                     tideData = (req.response);
                     document.getElementById("tides").innerHTML = (tideData)
                     document.getElementById('tides').scroll(40,0)
+                    localStorage.tideData = tideData
                 }else{
                     console.log("error")
                 }
             }
             req.send();
+            req.onerror = function(){
+                tideData = localStorage.tideData
+                document.getElementById("tides").innerHTML = (tideData)
+                document.getElementById('tides').scroll(40,0)
+                alert("No Internet Connection Detected! Using Most Recent Data.")
+            }
         </script>
         <section class="waves" style="margin-top: 1vh; padding-right: 3vw; margin-bottom: 8%; font-size: 100%; height: 20vh;">
             <h1 id="wavesTitle" style="text-align: center; width: 100%; font-size: 3vh; margin-bottom: 1vh;">Westward Ho! wave forecast</h1>
@@ -289,18 +514,51 @@
                         document.getElementById("waves").appendChild(div)
                     }
                     console.log(waveData)
+                    localStorage.waveData = waveData
                 }else{
                     console.log("error")
                 }
             }
             waveReq.send();
+            req.onerror = function(){
+                waveData = localStorage.waveData
+                waveData = waveData.split(",");
+                waveData.pop()
+                dayNum = 0
+                var today = new Date()
+                for (let i=0; i<waveData.length; i++){
+                    if(i%8==0){
+                        var dayList = ["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"]
+                        date = new Date(today);
+                        date.setDate(date.getDate() + dayNum);
+                        console.log(date.getDate())
+                        var div= document.createElement("div1");
+                        var h1 = document.createElement("h1");
+                        var dateHeading = document.createElement("h1")
+                        dateHeading.setAttribute("id","date")
+                        dateHeading.appendChild(document.createTextNode(dayList[date.getDay()]+" "+date.getDate()));
+                        console.log(dateHeading);
+
+                        h1.appendChild(document.createTextNode(String(waveData[i])+"m"));
+                        div.appendChild(dateHeading)
+                        div.appendChild(h1)
+                        dayNum += 1
+                    }else{
+                        var h1 = document.createElement("h1");
+                        h1.appendChild(document.createTextNode(String(waveData[i])+"m"));
+                        div.appendChild(h1);
+                    };
+                    document.getElementById("waves").appendChild(div)
+                }
+                alert("No Internet Connection Detected! Using Most Recent Data.")
+            }
         </script>
         <section class="bottomNav" id="Nav" style="position: fixed; bottom: 0; width: 100%; height: 7%;">
             <div style="margin-left: -3vw;">
-                <a href="./index.html" id="home" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%;margin-right: 1%; float: left;"><img id="homeIcon" style="margin-top: 3%; width: 20%;"></a>
+                <a href="./index.html" id="home" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%;margin-right: 1%; float: left;"><img id="homeIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
             <div style="margin-left: -3vw;">
-                <a href="./sail.html" id="sail" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%; margin-left: 1%; float: right;"><img id="sailIcon" style="margin-top: 3%; width: 20%;"></a>
+                <a href="./sail.html" id="sail" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%; margin-left: 1%; float: right;"><img id="sailIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
         </section>
         <script type="text/javascript">
@@ -312,11 +570,15 @@
                         //graphPrecipitation(xyData)
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                     }else{
                         var elem = document.getElementsByTagName("body");
                         elem[0].setAttribute("class","light")
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
                         //graphPrecipitation(xyData)
 
                     }
@@ -332,9 +594,13 @@
                     if (localStorage.theme=="dark"){
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                     }else{
                         document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
                         document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                        document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                        document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
                     }
                 }else{
                     console.log("error")
