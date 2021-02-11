@@ -182,7 +182,7 @@
                 transition: background-color 0.25s ease-in;
             }
 
-            @media only screen and (min-width: 992px) {
+            @media only screen and (min-width: 1024px) and (orientation: landscape){
                 ::-webkit-scrollbar{
                     background: rgba(0,0,0,0);
                     height: 5px;
@@ -192,9 +192,8 @@
                     background-color: var(--color-bg1);
                     height: 1px;
                 }
-                ::-webkit-scrollbar-track:hover ::-webkit-slider-thumb{
-                    background-color: red;
-                    height: 10px;
+                ::-webkit-scrollbar-thumb:hover{
+                    background-color: rgb(65, 64, 64);
                 }
 
                 body{
@@ -452,11 +451,18 @@
                     tideData = (req.response);
                     document.getElementById("tides").innerHTML = (tideData)
                     document.getElementById('tides').scroll(40,0)
+                    localStorage.tideData = tideData
                 }else{
                     console.log("error")
                 }
             }
             req.send();
+            req.onerror = function(){
+                tideData = localStorage.tideData
+                document.getElementById("tides").innerHTML = (tideData)
+                document.getElementById('tides').scroll(40,0)
+                alert("No Internet Connection Detected! Using Most Recent Data.")
+            }
         </script>
         <section class="waves" style="margin-top: 1vh; padding-right: 3vw; margin-bottom: 8%; font-size: 100%; height: 20vh;">
             <h1 id="wavesTitle" style="text-align: center; width: 100%; font-size: 3vh; margin-bottom: 1vh;">Westward Ho! wave forecast</h1>
@@ -508,11 +514,44 @@
                         document.getElementById("waves").appendChild(div)
                     }
                     console.log(waveData)
+                    localStorage.waveData = waveData
                 }else{
                     console.log("error")
                 }
             }
             waveReq.send();
+            req.onerror = function(){
+                waveData = localStorage.waveData
+                waveData = waveData.split(",");
+                waveData.pop()
+                dayNum = 0
+                var today = new Date()
+                for (let i=0; i<waveData.length; i++){
+                    if(i%8==0){
+                        var dayList = ["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"]
+                        date = new Date(today);
+                        date.setDate(date.getDate() + dayNum);
+                        console.log(date.getDate())
+                        var div= document.createElement("div1");
+                        var h1 = document.createElement("h1");
+                        var dateHeading = document.createElement("h1")
+                        dateHeading.setAttribute("id","date")
+                        dateHeading.appendChild(document.createTextNode(dayList[date.getDay()]+" "+date.getDate()));
+                        console.log(dateHeading);
+
+                        h1.appendChild(document.createTextNode(String(waveData[i])+"m"));
+                        div.appendChild(dateHeading)
+                        div.appendChild(h1)
+                        dayNum += 1
+                    }else{
+                        var h1 = document.createElement("h1");
+                        h1.appendChild(document.createTextNode(String(waveData[i])+"m"));
+                        div.appendChild(h1);
+                    };
+                    document.getElementById("waves").appendChild(div)
+                }
+                alert("No Internet Connection Detected! Using Most Recent Data.")
+            }
         </script>
         <section class="bottomNav" id="Nav" style="position: fixed; bottom: 0; width: 100%; height: 7%;">
             <div style="margin-left: -3vw;">
