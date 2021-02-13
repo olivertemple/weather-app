@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.dark{
+    --color-bg1: rgb(32,32,32);
+    --color-bg2: rgb(0, 0, 0);
+    --color-text1: rgb(255, 255, 255);
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(143, 143, 143);
+    --color-text4: rgb(158, 158, 158);
+    --color-summary: rgba(72, 72, 255, 0.303);
+}
+.light{
+    --color-bg1: rgba(169, 169, 169, 0.638);
+    --color-bg2: white;
+    --color-text1: black;
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(100, 100, 100);
+    --color-text4: rgb(75, 75, 75);
+    --color-summary:  rgba(72, 72, 255, 0.789);
+}
+
+.red{
+    --color-bg1: rgba(90, 4, 4, 0.823) ;
+    --color-bg2: rgb(28, 0, 0);
+    --color-text1: rgb(255, 255, 255);
+    --color-text2: #e6ab46c9;
+    --color-text3: rgb(237, 80, 80);
+    --color-text4: rgb(58, 0, 0);
+    --color-summary:  rgba(181, 45, 45, 0.857);
+}
+
+.dark .hourly img{
+    filter: brightness(150%)
+}
+.dark .longTerm img{
+    filter: brightness(150%)
+}
+
+.red .hourly img{
+    filter: brightness(150%)
+}
+.red .longTerm img{
+    filter: brightness(150%)
+}
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    transition: color 0.25s ease-in;
+}
+
+
+
+body{
+    background-color: var(--color-bg2);
+    color: var(--color-text1);
+}
+.location h1{
+    color:var(--color-text1);
+}
+
+.summary{
+    background-color: var(--color-summary);
+    transition: background-color 0.25s ease-in;
+}
+
+.summary div1{
+    position:absolute;
+    margin-left: 84vw;
+    margin-top:12%;
+}
+.summary h4{
+    font-size: 30px;
+    color:var(--color-text4)
+}
+
+.summary img{
+    height: 10%;
+    position:absolute;
+    margin-left: 0vh;
+
+}
+
+.summary h1{
+    font-size: 150px;
+    float: right;
+    margin-right: 10vw;
+    margin-top: 1vh;
+}
+
+.summary h3{
+    margin-top:8vh;
+    position: absolute;
+    font-size: 2vh;
+    margin-left: 3vw;
+}
+
+.summary h2{
+    text-align: left;
+    font-size: 60px;
+    margin-left: 3vw;
+}
+
+.summary span{
+    float:right;
+    margin-right: 10vw;
+}
+
+.wind #wind{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+}
+
+.wind div2{
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+.wind h1{
+    font-size: 100vh;
+    text-align: center;
+}
+
+.wind h2{
+    font-size: 300%;
+    text-align: center;
+}
+
+.wind #windDirectionImage{
+    width: 35%;
+
+}
+.wind span{
+    font-size: 50%;
+}
+
+.hourly div1{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+    display:inline-block;
+    border-radius: 30px;
+    margin-right: 1vw;
+    padding-bottom: 1vh;
+    scroll-snap-align: start;
+
+}
+
+.hourly img{
+    height:7vh;
+}
+.hourly h1{
+    text-align: center;
+    font-size: 1.75vh;
+}
+
+.hourly h2{
+    text-align: center;
+    font-size: 1.75vh;
+    margin-top: -1vh;
+}
+
+.hourly h3{
+    text-align: center;
+    font-size: 1.75vh;
+    margin-bottom: -1.5vh;
+    margin-top: 0.5vh;
+}
+.hour{
+    
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+}
+
+
+.bottomNav{
+    background-color: var(--color-bg2);
+    transition: all 0.25s ease-in !important;
+    transition-duration: 0.25s;
+    border-top: 1vh var(--color-bg2) solid;
+}
+
+
+
+.bottomNav div{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+}
+
+.bottomNav a{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+}
+
+
+
+.longTerm div2{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+    display:inline-block;
+    border-radius: 30px;
+    margin-right: 1vw;
+    padding-bottom: 1vh;
+    width: 48vw;
+    margin-bottom: 1vh;
+    scroll-snap-align: start;
+}
+
+.longTerm img{
+    height:10vh;
+}
+.longTerm h1{
+    margin-top: 10%;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.longTerm h2{
+    text-align: center;
+    font-size: 1.75vh;
+    
+}
+.longTerm h3{
+    float: right;
+    font-size: 300%;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
+.longTerm span{
+    font-size: 200%;
+    margin-right: -2vw;
+}
+
+.sun div{
+    background-color: var(--color-bg1);
+    transition: background-color 0.25s ease-in;
+    margin-left: 3vw;
+    border-radius: 30px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 9vh;
+    width: 97vw;
+    scroll-snap-align: start;
+}
+
+.sun #img{
+    width: 50%;
+}
+
+.sun #data{
+    width: 50%;
+}
+
+.sun h1{
+    font-size: 400%;
+    margin-top: -15%;
+}
+
+.sun h2{
+    font-size: 500%;
+}
+
+.sun img{
+    width: 50%;
+}
+.longTerm br{
+    display: none;
+}
+
+
+@media only screen and (min-width: 1024px) and (orientation: landscape){
+    body{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        overflow-x: hidden !important;
+
+    }
+
+    ::-webkit-scrollbar{
+        background: rgba(0,0,0,0);
+        height: 5px;
+        width: 5px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: var(--color-bg1);
+        height: 1px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color: rgb(65, 64, 64);
+    }
+
+
+    .location h1{
+        font-size: 15px !important;
+    }
+    .location img{
+        width: 1.5% !important;
+    }
+
+
+    .summary{
+        height: 50vh !important;
+        width: 48vw;
+        margin-bottom: 2vh !important;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        float: left;
+    }
+    .summary img{
+        width: 30vh !important;
+        height: 30vh !important;
+    }
+    .summary h1{
+        margin-top: 3vh;
+        font-size: 15vh !important;
+    }
+    .summary div1{
+        margin-top: 12vh !important;
+        margin-left: 36vw;
+    }
+    .summary h4{
+        font-size: 3vh !important;
+    }
+    .summary h3{
+        margin-top: 22vh !important;
+        font-size: 8vh !important;
+    }
+
+    .summary #feelsLike{
+        margin-top: 35vh !important;
+        margin-right: 1vw;
+        margin-left: 1vw;
+    }
+    .summary span{
+        float: none;
+        margin-left: 15vw;
+    }
+
+
+    .wind{
+        position: absolute;
+        top: 3vh;
+        right: 0.5vw;
+        width: 49.5vw;
+        float: right;
+
+    }
+    .wind #wind{
+        height: 15vh !important;
+    }
+    
+
+    .hourly{
+        margin-top: 17.5vh;
+        margin-left: 1vw;
+        margin-right: 0.5vw;
+        height: 35vh !important;
+
+    }
+    #hourly{
+        height: 35vh !important;
+    }
+    .hourly div1{
+        width: calc(25% - 0.75vw);
+        height:calc(100% - 5px - 1vh) !important;
+        text-align: center;
+    }
+    .hourly h3, h2{
+        font-size: 5vh !important;
+    }  
+    .hourly h2{
+        margin-top: -15%;
+    }
+
+    .hourly h1{
+        font-size: 3vh !important;
+        padding: 1vh
+    }
+    .hourly img{
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .hour{
+        position: absolute;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        margin-bottom: 1vw;
+        width: 46vw;
+        padding-bottom: 1vw;
+        height: 40vh !important;
+        float: left;
+    }
+    .canvasjs-chart-canvas{
+        height: 40vh !important;
+    }
+
+
+    .longTerm{
+        margin-left: 50vw !important;
+        float: right;
+        width: 49vw;
+        height: 43vh;
+        margin-bottom: 0px;
+        position: absolute;
+        overflow-y: hidden;
+        display: block;
+    }
+    
+    .longTerm div2{
+        height: 40vh;
+        margin-right: 0px;
+        width: calc(50% - 0.5vw);
+        margin-right: 1vw;
+    }
+    .longTerm h1{
+        font-size: 5vh;
+    }
+    .longTerm h2{
+        position: absolute;
+        width: 50%;
+        bottom: 0;
+    }
+    .longTerm h3{
+        font-size: 5vh;
+    }
+    .longTerm img{
+        width: 50%;
+        height: 50%;
+        float: left;
+    }
+    .longTerm br{
+        display: block;
+    }
+
+    .sun{
+        display: none;
+    }
+
+
+    #desktopNav{
+        display: inline-block !important;
+        position: absolute;
+        border-radius: 10%;
+        cursor: pointer;
+        z-index: 2;
+        background-color: var(--color-bg1);
+        text-align: center;
+        padding: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        display: block !important;
+    }
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: var(--color-text3);
+        margin: 6px 0;
+        transition: 0.5s;
+        display: block !important;
+    }
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+        margin-left: 200px;
+    }
+    .change .bar2 {opacity: 0;}
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+        margin-left: 200px;
+    }
+    
+
+    .sideNav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: var(--color-bg2);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        display: block !important;
+    }
+
+    .sideNav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #a2a2a2;
+        display: block !important;
+        transition: 0.3s;
+    }
+
+    .sideNav a:hover {
+        color: rgb(82, 82, 82);
+    }
+
+
+    .sideNav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        display: block !important;
+    }
+    .sideNav .active{
+        color:var(--color-text2);
+    }
+    .sideNavImg{
+        width: 15%;
+        display: inline !important;
+    }
+    .sideNav #locationInput{
+        border-radius: 40px;
+        text-align: center;
+    }
+    #locationButton{
+        cursor: pointer;
+    }
+
+    .bottomNav{
+        display: none !important;
+    }
+    
+}
