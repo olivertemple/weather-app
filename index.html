@@ -255,7 +255,8 @@
                 border-radius: 30px;
                 text-align: center;
                 display: inline-block;
-                margin-bottom: 9vh;
+                margin-bottom: 1vh;
+                overflow: hidden;
                 width: 97vw;
                 scroll-snap-align: start;
             }
@@ -540,56 +541,6 @@
     </head>
     <body style="margin-left: 3vw;">
 
-        <div id="desktopNav" style="display: none;" onclick="animateDesktopNav(this); toggleNav()">
-            <div class="bar1" style="display: none;"></div>
-            <div class="bar2" style="display: none;"></div>
-            <div class="bar3" style="display: none;"></div>
-        </div>
-        <div class="sideNav" id="sideNav" style="display: none;">
-            <a href="index.html" class="active" style="display: none;"><img class="sideNavImg" id="homeIcon" style="display: none;"> Home</a>
-            <a href="sail.html" style="display: none;"><img class="sideNavImg" id="sailIcon" style="display: none;"> Sail</a>
-        </div>
-        <script>
-            function animateDesktopNav(){
-                document.getElementById("desktopNav").classList.toggle("change");
-            }
-            function openNav() {
-                document.getElementById("sideNav").style.width = "250px";
-                window.onkeyup = (function(event){
-                    if(event.code == 27){
-                        console.log("esc")
-                        closeNav();
-                    }
-                })
-            }
-
-            function closeNav() {
-                document.getElementById("sideNav").style.width = "0";
-            }
-
-            function toggleNav(){
-                if (document.getElementById("desktopNav").classList.contains("change")){
-                    openNav();
-                }else{
-                    closeNav();
-                }
-            }
-
-            document.onkeydown = function(evt) {
-                evt = evt || window.event;
-                var isEscape = false;
-                if ("key" in evt) {
-                    isEscape = (evt.key === "Escape" || evt.key === "Esc");
-                } else {
-                    isEscape = (evt.keyCode === 27);
-                }
-                if (isEscape) {
-                    closeNav();
-                    animateDesktopNav();
-                }
-            };
-        </script>
-
         <noscript>
             <h1>javascript is required for this web app to run</h1>
         </noscript>
@@ -756,32 +707,28 @@
             }
             function changeTheme(){
                 console.log("Well done! You found the secret theme button!")
-                if (theme+1 < 4){
-                    theme += 1
-                }else{
-                    theme = 1
-                }
-                if (theme == 1){
+                console.log(localStorage.theme)
+                if (localStorage.theme == "light"){
                     localStorage.theme = ("dark")
-                document.getElementsByTagName("body")[0].setAttribute("class","dark")
-                document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
-                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
-                document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
-                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
-                }else if(theme == 2){
-                    localStorage.theme=("light") 
-                document.getElementsByTagName("body")[0].setAttribute("class","light")
-                document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
-                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
-                document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
-                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
-                }else if(theme == 3){
-                    localStorage.theme = ("red") 
-                document.getElementsByTagName("body")[0].setAttribute("class","red")
-                document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
-                document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
-                document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
-                document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
+                    document.getElementsByTagName("body")[0].setAttribute("class","dark")
+                    //document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+                    //document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                    //document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                    //document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
+                }else if(localStorage.theme == "dark"){
+                    localStorage.theme=("red") 
+                    document.getElementsByTagName("body")[0].setAttribute("class","red")
+                    //document.getElementById("homeIcon").setAttribute("src","resources/weather-light.png");
+                    //document.getElementById("sailIcon").setAttribute("src","resources/sailboat-light.png");
+                    //document.getElementById("homeIcon1").setAttribute("src","resources/weather-light.png");
+                    //document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-light.png");
+                }else if(localStorage.theme=="red"){
+                    localStorage.theme = ("light") 
+                    document.getElementsByTagName("body")[0].setAttribute("class","light")
+                    //document.getElementById("homeIcon").setAttribute("src","resources/weather-dark.png");
+                    //document.getElementById("sailIcon").setAttribute("src","resources/sailboat-dark.png");
+                    //document.getElementById("homeIcon1").setAttribute("src","resources/weather-dark.png");
+                    //document.getElementById("sailIcon1").setAttribute("src","resources/sailboat-dark.png");
                 }
             }
         </script>
@@ -909,7 +856,7 @@
                     var descriptionText = day.weather[0].description
                     descriptionText = descriptionText.split(" ")
                     console.log(descriptionText)
-                    description.appendChild(document.createTextNode(descriptionText[0]))
+                    description.appendChild(document.createTextNode(descriptionText[0]+" "))
                     description.appendChild(document.createElement("br"))
                     description.appendChild(document.createTextNode(descriptionText[1]))
 
@@ -1007,14 +954,14 @@
                 document.getElementById('sunSection').scroll(100,0)
             }
         </script>
-        <section class="bottomNav" id="Nav" style="position: fixed; bottom: 0; width: 100%; height: 7%;">
+   <!--     <section class="bottomNav" id="Nav" style="position: fixed; bottom: 0; width: 100%; height: 7%;">
             <div style="margin-left: -3vw;">
                 <a href="./index.html" id="home" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%;margin-right: 1%; float: left;"><img id="homeIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
             <div style="margin-left: -3vw;">
                 <a href="./sail.html" id="sail" style="width: 49%; float: left; text-align: center; border-top-right-radius: 30px; border-top-left-radius: 30px; padding-bottom: 2%; margin-left: 1%; float: right;"><img id="sailIcon1" style="margin-top: 3%; width: 20%;"></a>
             </div>
-        </section>
+        </section>-->
 
         <script type="text/javascript">
             if (localStorage.theme == undefined){
