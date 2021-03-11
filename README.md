@@ -3,4 +3,4 @@ This is a simple progrssive web app that is used to tell the weather at your cur
 
 All you have to do is go to the ip adress or domain name of the server that is running it and then you can install it on your own device.
 ---
-<img src="./resources/exaxmple1.jpg">
+<img src="./resources/exaxmple1.png">
